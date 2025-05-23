@@ -25,8 +25,8 @@
     },
     {
       matchDepNames: ["python"],
-      matchupdatetypes: ["minor"],
-      groupname: "python",
+      matchUpdateTypes: ["minor"],
+      groupName: "python",
     },
     {
       matchPackageNames: ["docker.io/library/python"],
