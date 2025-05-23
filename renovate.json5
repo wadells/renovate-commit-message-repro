@@ -10,6 +10,7 @@
     },
     {
       matchPackageNames: ["docker.io/library/python"],
+      pinDigests: true,
       separateMultipleMinor: true,
     },
     {
