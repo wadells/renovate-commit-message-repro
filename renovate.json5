@@ -24,20 +24,11 @@
       separateMultipleMinor: true,
     },
     {
-      matchDepNames: ["python"],
-      matchUpdateTypes: ["minor"],
-      groupName: "python",
-    },
-    {
       matchPackageNames: ["docker.io/library/python"],
       pinDigests: true,
       separateMultipleMinor: true,
-    },
-    {
-      matchPackageNames: ["docker.io/library/python"],
-      // let digest and pindigest follow typical docker rules, we only want python version updates to get grouped
-      matchUpdateTypes: ["minor"],
-      groupName: "python",
+      // group with other python updates, by using the same branchname
+      branchTopic: "python-{{{newMajor}}}{{#if separateMinorPatch}}{{#if isPatch}}.{{{newMinor}}}{{/if}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}"
     },
   ],
 }
