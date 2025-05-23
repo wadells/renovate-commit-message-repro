@@ -21,8 +21,12 @@
     },
     {
       matchDepNames: ["python"],
-      groupName: "python",
       separateMultipleMinor: true,
+    },
+    {
+      matchDepNames: ["python"],
+      matchupdatetypes: ["minor"],
+      groupname: "python",
     },
     {
       matchPackageNames: ["docker.io/library/python"],
@@ -32,7 +36,7 @@
     {
       matchPackageNames: ["docker.io/library/python"],
       // let digest and pindigest follow typical docker rules, we only want python version updates to get grouped
-      matchUpdateTypes: ["major", "minor", "patch"],
+      matchUpdateTypes: ["minor"],
       groupName: "python",
     },
   ],
