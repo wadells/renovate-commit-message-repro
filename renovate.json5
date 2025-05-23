@@ -28,8 +28,13 @@
       matchPackageNames: ["docker.io/library/python"],
       pinDigests: true,
       separateMultipleMinor: true,
+    },
+    {
+      matchPackageNames: ["docker.io/library/python"],
       // group with other python updates, by using the same branchname
-      branchTopic: "python-{{{newMajor}}}{{#if separateMinorPatch}}{{#if isPatch}}.{{{newMinor}}}{{/if}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}"
+      matchUpdateTypes: ["major", "minor", "patch"],
+      branchTopic: "python-{{{newMajor}}}{{#if separateMinorPatch}}{{#if isPatch}}.{{{newMinor}}}{{/if}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
+      commitMessageTopic: "Python{{#unless commitMessageExtra}} to {{prettyNewVersion}}{{/unless}}",
     },
   ],
 }
