@@ -1,3 +1,3 @@
-from python:3.11.9@sha256:a03f4e5b67980d474839e7b4d4a405871a4259690287d65060cff95d0cb311cd
+from python:3.12.10@sha256:12e60b9c62151e59de29ec7e1836c63080b382415f2b0083a8b7e27e3049dc83
 
 # There would typically be some steps to install poetry here, but they're irrelevant to the renovate reproduction
