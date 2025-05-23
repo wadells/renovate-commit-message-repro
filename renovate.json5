@@ -22,6 +22,7 @@
     {
       matchDepNames: ["python"],
       separateMultipleMinor: true,
+      commitMessageTopic: "Python{{#unless commitMessageExtra}} to {{prettyNewVersion}}{{/unless}}",
     },
     {
       matchPackageNames: ["docker.io/library/python"],
