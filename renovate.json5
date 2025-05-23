@@ -1,12 +1,28 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   prHourlyLimit: 0,
+  customManagers: [
+    {
+      customType: "regex",
+      description: "Update AWS Lambda Python runtime versions in Terraform",
+      fileMatch: [".+\\.tf$"],
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\s*runtime\\s*=\\s*"python(?<currentValue>[0-9\\.]+)"',
+      ],
+      versioningTemplate: "{{#if versioning}}{{{versioning}}}{{/if}}",
+    },
+  ],
   packageRules: [
+    {
+      matchDatasources: ["endoflife-date"],
+      matchPackageNames: ["aws-lambda"],
+      matchDepNames: ["python"],
+      extractVersion: "^python(?<version>[0-9\\.]+)$",
+    },
     {
       matchDepNames: ["python"],
       groupName: "python",
       separateMultipleMinor: true,
-      commitMessageExtra: "to {{prettyNewVersion}} (rule 1)",
     },
     {
       matchPackageNames: ["docker.io/library/python"],
@@ -18,7 +34,6 @@
       // let digest and pindigest follow typical docker rules, we only want python version updates to get grouped
       matchUpdateTypes: ["major", "minor", "patch"],
       groupName: "python",
-      commitMessageExtra: "to {{prettyNewVersion}} (rule 2)",
     },
   ],
 }
