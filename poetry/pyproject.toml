@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "test"
+version = "0.1.0"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.11.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

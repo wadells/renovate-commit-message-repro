@@ -1,0 +1,23 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  prHourlyLimit: 0,
+  packageRules: [
+    {
+      matchDepNames: ["python"],
+      groupName: "python",
+      separateMultipleMinor: true,
+      commitMessageExtra: "to {{prettyNewVersion}} (rule 1)",
+    },
+    {
+      matchPackageNames: ["docker.io/library/python"],
+      separateMultipleMinor: true,
+    },
+    {
+      matchPackageNames: ["docker.io/library/python"],
+      // let digest and pindigest follow typical docker rules, we only want python version updates to get grouped
+      matchUpdateTypes: ["major", "minor", "patch"],
+      groupName: "python",
+      commitMessageExtra: "to {{prettyNewVersion}} (rule 2)",
+    },
+  ],
+}
