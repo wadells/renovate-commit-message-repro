@@ -1,3 +1,3 @@
-from docker.io/library/python:3.11.9@sha256:4e0b4f7d6124f7ff41cdc1b82bedaa07722c55fbb78038c7587b5f7c0b892c1a
+from docker.io/library/python:3.11.16@sha256:e087dbafe32f3a19e90616cea7a5c11827373e7eec3fc9842f003fb07b938669
 
 # There would typically be some steps to install poetry here, but they're irrelevant to the renovate reproduction
